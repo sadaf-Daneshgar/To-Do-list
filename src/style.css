@@ -11,6 +11,7 @@ body {
   height: 100vh;
   background-color: #f0f0f0;
 }
+
 /* Add your styles here */
 
 .main-section {
@@ -32,7 +33,6 @@ body {
 .tasks-list {
   padding: 12px 10px;
   justify-content: space-between;
-  align-items: center;
   background-color: #ccc;
   align-items: center;
 }
@@ -48,6 +48,7 @@ body {
 
 .task-description {
   flex-grow: 1;
+  padding-left: 12px;
 }
 
 .delete-btn {
@@ -55,10 +56,6 @@ body {
   align-items: center;
   text-align: center;
   margin-bottom: 10px;
-}
-
-.task-description {
-  padding-left: 12px;
 }
 
 .heading {
