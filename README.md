@@ -32,13 +32,14 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 To Do List <a name="about-project"></a>
-**To Do List** is a application to add your tasks
+# 📖 To Do list <a name="about-project"></a>
+**To Do List** is a application to add our tasks
 ## 🛠 Built With <a name="built-with"></a>
 
 - ✅ HTML
 - ✅ CSS
 - ✅ JavaScript
+- ✅ Webpack
 - ✅ Git
 - ✅ Github.
 - ✅ Linters
@@ -64,7 +65,7 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://sadaf-daneshgar.github.io/To-Do-list/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -132,8 +133,9 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Show added book list**
-- **Remove book from the list**
+- **Add local storage**
+- **Show added tasks list**
+- **Remove task from the list**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
