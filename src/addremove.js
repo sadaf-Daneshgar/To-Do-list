@@ -5,6 +5,7 @@ const renderTasks = () => {
   tasksList.innerHTML = '';
 
   tasks.forEach((task) => {
+    // eslint-disable-next-line no-use-before-define
     const taskItem = createTaskItem(task);
     tasksList.appendChild(taskItem);
   });
@@ -20,6 +21,7 @@ const createTaskItem = (task) => {
   checkbox.checked = task.completed;
   checkbox.addEventListener('change', () => {
     task.completed = checkbox.checked;
+    // eslint-disable-next-line no-use-before-define
     saveTasks();
   });
   taskItem.appendChild(checkbox);
@@ -30,6 +32,7 @@ const createTaskItem = (task) => {
   taskDescription.contentEditable = true;
   taskDescription.addEventListener('input', () => {
     task.description = taskDescription.textContent;
+    // eslint-disable-next-line no-use-before-define
     saveTasks();
   });
   taskItem.appendChild(taskDescription);
@@ -39,6 +42,7 @@ const createTaskItem = (task) => {
   deleteButton.className = 'delete-btn';
   deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
   deleteButton.addEventListener('click', () => {
+    // eslint-disable-next-line no-use-before-define
     deleteTask(task);
   });
   taskItem.appendChild(deleteButton);
@@ -74,6 +78,7 @@ const createTaskItem = (task) => {
     const taskItem = event.target.closest('.task-item');
     if (taskItem) {
       const toIndex = Array.from(taskItem.parentNode.children).indexOf(taskItem);
+      // eslint-disable-next-line no-use-before-define
       reorderTasks(fromIndex - 1, toIndex);
     }
     taskItem.classList.remove('drag-over');
@@ -91,6 +96,7 @@ const addTask = (description) => {
 
   tasks.push(newTask);
   renderTasks();
+  // eslint-disable-next-line no-use-before-define
   saveTasks();
 };
 
@@ -98,8 +104,10 @@ const deleteTask = (task) => {
   const index = tasks.indexOf(task);
   if (index > -1) {
     tasks.splice(index, 1);
+    // eslint-disable-next-line no-use-before-define
     updateTaskIndexes();
     renderTasks();
+    // eslint-disable-next-line no-use-before-define
     saveTasks();
   }
 };
@@ -113,6 +121,7 @@ const updateTaskIndexes = () => {
 const clearCompletedTasks = () => {
   tasks = tasks.filter((task) => !task.completed);
   renderTasks();
+  // eslint-disable-next-line no-use-before-define
   saveTasks();
 };
 
@@ -123,6 +132,7 @@ const reorderTasks = (fromIndex, toIndex) => {
     task.index = index + 1;
   });
   renderTasks();
+  // eslint-disable-next-line no-use-before-define
   saveTasks();
 };
 
