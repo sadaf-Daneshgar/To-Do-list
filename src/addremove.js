@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 let tasks = [];
 
 const renderTasks = () => {
