@@ -99,9 +99,16 @@ const deleteTask = (task) => {
   const index = tasks.indexOf(task);
   if (index > -1) {
     tasks.splice(index, 1);
+    updateTaskIndexes();
     renderTasks();
     saveTasks();
   }
+};
+
+const updateTaskIndexes = () => {
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
 };
 
 const clearCompletedTasks = () => {
@@ -155,5 +162,4 @@ const taskforexport = {
   reorderTasks,
   saveTasks,
 };
-
 export default taskforexport;
