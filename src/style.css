@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.main-section {
+  font-family: Arial, sans-serif;
+  background-color: #e98e8e;
+  padding: 20px;
+  border-radius: 5px;
+  width: 600px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* style of js part */
+.tasks-list {
+  padding: 12px 10px;
+  justify-content: space-between;
+  background-color: #ccc;
+  align-items: center;
+}
+
+.task-item {
+  border-bottom: 1px solid rgb(120, 115, 115);
+  padding-top: 15px;
+}
+
+.task-item:last-child {
+  border: none;
+}
+
+.task-description {
+  flex-grow: 1;
+  padding-left: 12px;
+}
+
+.delete-btn {
+  margin-left: 520px;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-add {
+  background-color: #007bff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-add i {
+  font-size: 16px;
+}
+
+.btn-add:hover {
+  background-color: #0056b3;
+}
+
+.form-section {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.add {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.end-part {
+  text-align: center;
+  padding: 12px;
+}
+
+.clear-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+  background-color: #a71d2a;
+}
