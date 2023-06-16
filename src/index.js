@@ -1,5 +1,5 @@
 import './style.css';
 
-import taskforexport from './addremove.js';
+import tasksforexport from './addremove.js';
 
-taskforexport.renderTasks();
+tasksforexport.renderTasks();

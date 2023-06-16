@@ -1,14 +1,21 @@
 let tasks = [];
 
-const renderTasks = () => {
-  const tasksList = document.getElementById('tasks-list');
-  tasksList.innerHTML = '';
+const saveTasks = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
 
-  tasks.forEach((task) => {
-    // eslint-disable-next-line no-use-before-define
-    const taskItem = createTaskItem(task);
-    tasksList.appendChild(taskItem);
-  });
+const deleteTask = (task) => {
+  const index = tasks.indexOf(task);
+  if (index > -1) {
+    tasks.splice(index, 1);
+    saveTasks();
+  }
+};
+
+const reorderTasks = (fromIndex, toIndex) => {
+  const [task] = tasks.splice(fromIndex, 1);
+  tasks.splice(toIndex, 0, task);
+  saveTasks();
 };
 
 const createTaskItem = (task) => {
@@ -21,7 +28,6 @@ const createTaskItem = (task) => {
   checkbox.checked = task.completed;
   checkbox.addEventListener('change', () => {
     task.completed = checkbox.checked;
-    // eslint-disable-next-line no-use-before-define
     saveTasks();
   });
   taskItem.appendChild(checkbox);
@@ -32,7 +38,6 @@ const createTaskItem = (task) => {
   taskDescription.contentEditable = true;
   taskDescription.addEventListener('input', () => {
     task.description = taskDescription.textContent;
-    // eslint-disable-next-line no-use-before-define
     saveTasks();
   });
   taskItem.appendChild(taskDescription);
@@ -42,8 +47,8 @@ const createTaskItem = (task) => {
   deleteButton.className = 'delete-btn';
   deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
   deleteButton.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
     deleteTask(task);
+    taskItem.remove(); // Remove the task item from the DOM
   });
   taskItem.appendChild(deleteButton);
 
@@ -78,13 +83,28 @@ const createTaskItem = (task) => {
     const taskItem = event.target.closest('.task-item');
     if (taskItem) {
       const toIndex = Array.from(taskItem.parentNode.children).indexOf(taskItem);
-      // eslint-disable-next-line no-use-before-define
       reorderTasks(fromIndex - 1, toIndex);
     }
     taskItem.classList.remove('drag-over');
   });
 
   return taskItem;
+};
+
+const updateTaskIndexes = () => {
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
+};
+
+const renderTasks = () => {
+  const tasksList = document.getElementById('tasks-list');
+  tasksList.innerHTML = '';
+
+  tasks.forEach((task) => {
+    const taskItem = createTaskItem(task);
+    tasksList.appendChild(taskItem);
+  });
 };
 
 const addTask = (description) => {
@@ -95,49 +115,16 @@ const addTask = (description) => {
   };
 
   tasks.push(newTask);
+  updateTaskIndexes();
   renderTasks();
-  // eslint-disable-next-line no-use-before-define
   saveTasks();
-};
-
-const deleteTask = (task) => {
-  const index = tasks.indexOf(task);
-  if (index > -1) {
-    tasks.splice(index, 1);
-    // eslint-disable-next-line no-use-before-define
-    updateTaskIndexes();
-    renderTasks();
-    // eslint-disable-next-line no-use-before-define
-    saveTasks();
-  }
-};
-
-const updateTaskIndexes = () => {
-  tasks.forEach((task, index) => {
-    task.index = index + 1;
-  });
 };
 
 const clearCompletedTasks = () => {
   tasks = tasks.filter((task) => !task.completed);
+  updateTaskIndexes();
   renderTasks();
-  // eslint-disable-next-line no-use-before-define
   saveTasks();
-};
-
-const reorderTasks = (fromIndex, toIndex) => {
-  const [task] = tasks.splice(fromIndex, 1);
-  tasks.splice(toIndex, 0, task);
-  tasks.forEach((task, index) => {
-    task.index = index + 1;
-  });
-  renderTasks();
-  // eslint-disable-next-line no-use-before-define
-  saveTasks();
-};
-
-const saveTasks = () => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -161,7 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
   clearButton.addEventListener('click', clearCompletedTasks);
 });
 
-const taskforexport = {
+const tasksforexport = {
   tasks,
   renderTasks,
   createTaskItem,
@@ -171,4 +158,5 @@ const taskforexport = {
   reorderTasks,
   saveTasks,
 };
-export default taskforexport;
+
+export default tasksforexport;
