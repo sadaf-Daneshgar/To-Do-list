@@ -9,12 +9,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #007bff;
+  background-color: #d3deea;
 }
 
 .main-section {
   font-family: Arial, sans-serif;
-  background-color: #e98e8e;
+  background-color: #f2aaaa;
   padding: 20px;
   border-radius: 5px;
   width: 600px;
@@ -107,7 +107,7 @@ body {
 }
 
 .clear-btn {
-  background-color: #dc3545;
+  background-color: #df4655;
   color: #fff;
   border: none;
   padding: 15px;

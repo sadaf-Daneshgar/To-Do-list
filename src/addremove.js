@@ -1,5 +1,5 @@
 let tasks = [];
-
+// Array to store the tasks
 const saveTasks = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
@@ -15,6 +15,7 @@ const deleteTask = (task) => {
   if (index > -1) {
     tasks.splice(index, 1);
     updateTaskIndexes();
+    // Update the indexes of the remaining tasks
     saveTasks();
   }
 };
@@ -30,6 +31,7 @@ const createTaskItem = (task) => {
   taskItem.className = 'task-item';
 
   const checkbox = document.createElement('input');
+  // Create a checkbox for task completion
   checkbox.type = 'checkbox';
   checkbox.className = 'form-check-input';
   checkbox.checked = task.completed;
@@ -50,6 +52,7 @@ const createTaskItem = (task) => {
   taskItem.appendChild(taskDescription);
 
   const deleteButton = document.createElement('button');
+  // Create a delete button for removing the task
   deleteButton.type = 'button';
   deleteButton.className = 'delete-btn';
   deleteButton.innerHTML = '<i class="bi bi-trash"></i>';
@@ -123,6 +126,7 @@ const addTask = (description) => {
 
 const clearCompletedTasks = () => {
   tasks = tasks.filter((task) => !task.completed);
+  // Remove completed tasks from the array
   updateTaskIndexes();
   renderTasks();
   saveTasks();
