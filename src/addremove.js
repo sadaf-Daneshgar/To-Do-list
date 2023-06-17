@@ -4,11 +4,17 @@ const saveTasks = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
+const updateTaskIndexes = () => {
+  tasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
+};
+
 const deleteTask = (task) => {
   const index = tasks.indexOf(task);
   if (index > -1) {
     tasks.splice(index, 1);
-    updateTaskIndexes(); // Update the indexes after deleting a task
+    updateTaskIndexes();
     saveTasks();
   }
 };
@@ -90,12 +96,6 @@ const createTaskItem = (task) => {
   });
 
   return taskItem;
-};
-
-const updateTaskIndexes = () => {
-  tasks.forEach((task, index) => {
-    task.index = index + 1;
-  });
 };
 
 const renderTasks = () => {
