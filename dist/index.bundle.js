@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _addremove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addremove.js */ \"./src/addremove.js\");\n\n\n\n\n_addremove_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].renderTasks();\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _addremove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addremove.js */ \"./src/addremove.js\");\n\n\n\n\n_addremove_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].renderTasks();\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ })
 
