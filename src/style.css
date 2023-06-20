@@ -20,6 +20,13 @@ body {
   width: 600px;
 }
 
+.top-icon {
+  background-color: #007bff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+
 .title {
   display: flex;
   align-items: center;
@@ -58,7 +65,7 @@ body {
 }
 
 .delete-btn:hover {
-  background: #dc3545;
+  background: #007bff;
 }
 
 .form-check-input {
@@ -107,7 +114,7 @@ body {
 }
 
 .clear-btn {
-  background-color: #df4655;
+  background-color: #007bff;
   color: #fff;
   border: none;
   padding: 15px;
